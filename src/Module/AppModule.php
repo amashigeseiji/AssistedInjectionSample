@@ -16,6 +16,7 @@ class AppModule extends AbstractAppModule
         if (file_exists($env)) {
             (new Loader($env))->parse()->putenv(true);
         }
+        $this->bind(HogeInterface::class)->toProvider(HogeProvider::class);
         $this->install(new PackageModule);
     }
 }
